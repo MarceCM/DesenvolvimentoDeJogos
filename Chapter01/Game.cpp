@@ -66,6 +66,8 @@ bool Game::Initialize()
 
 	mPaddlePos.x = 10.0f;//posição inicial da raquete eixo x
 	mPaddlePos.y = 768.0f / 2.0f;//posição inicial da raquee eixo y
+	mPaddle2Pos.x = 980.0f;//posição inicial da raquete eixo x
+	mPaddle2Pos.y = 768.0f / 2.0f;//posição inicial da raquee eixo y
 	mBallPos.x = 1024.0f / 2.0f;//posição da bola eixo x
 	mBallPos.y = 768.0f / 2.0f;//posição da bola eixo y
 	mBallVel.x = -200.0f;//velocidade de movimentação da bola no eixo x
@@ -332,6 +334,16 @@ void Game::GenerateOutput()
 		static_cast<int>(paddleH)
 	};
 	SDL_RenderFillRect(mRenderer, &paddle);
+
+	//desenhando a raquete 2 - usando mPaddle2Pos que é uma struc de coordenada que foi definida em Game.h
+	// Draw paddle
+	SDL_Rect paddle2{
+		static_cast<int>(mPaddle2Pos.x),//static_cast converte de float para inteiros, pois SDL_Rect trabalha com inteiros
+		static_cast<int>(mPaddle2Pos.y - paddleH / 2),
+		thickness,
+		static_cast<int>(paddleH)
+	};
+	SDL_RenderFillRect(mRenderer, &paddle2);
 
 
 	//desenhando a bola - usando mBallPos que é uma struc de coordenadas definida como membro em Game.h

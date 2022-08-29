@@ -48,6 +48,12 @@ private:
 	int mPaddleDir;
 	// Position of paddle
 	Vector2 mPaddlePos;
+
+	// Direction of paddle
+	int mPaddle2Dir;
+	// Position of paddle
+	Vector2 mPaddle2Pos;
+
 	// Position of ball
 	Vector2 mBallPos;
 	// Velocity of ball
